@@ -1,0 +1,29 @@
+crear request -> php artisan make:request NombreRequest
+
+agregar al controller el request App\Requests\NombreRequest
+
+en el controlador el request cambiarlo al del request que creamos;
+
+ir al html y agregar condiciones para mostrar errores las condiciones que faltan
+
+poner old('') en los values de los inputs del request para que no se vacien cuando se cometa un error
+
+en el metodo autorizar de la clase del request que creamos cambiar el return a true
+
+en rules:
+	hacer un array dentro del return
+	
+	['id del input' => 'bail(para que realiza las validaciones en orden)|required|tipo de dato'|gte:1(greater than or equal 1)|lte:99(less than or equal)|max:30(maximo 30 caracteres)|min:2(minimo 2),.....,
+	'id de otro input => ['required,Rule::in(['Arquero', 'Defensa','etc'])]]
+
+hacer funcion messagges():array
+	lo mismo pero
+	'id.alpha' => 'solo letras'
+	'id.required => 'indique el rut'
+	'id.tipo de dato' => 'indique tipo dedatoffdshahf'
+	'id.gte' => 'otro mensaje'
+	'id.lte' => 'otro mensaje'
+	'id.in' => 'input no balido'
+
+use Illuminate\Validation\Rule;
+
