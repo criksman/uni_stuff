@@ -1,3 +1,5 @@
+//--------------------------------------//
+
 crear request -> php artisan make:request NombreRequest
 
 agregar al controller el request App\Requests\NombreRequest
@@ -14,7 +16,9 @@ en rules:
 	hacer un array dentro del return
 	
 	['id del input' => 'bail(para que realiza las validaciones en orden)|required|tipo de dato'|gte:1(greater than or equal 1)|lte:99(less than or equal)|max:30(maximo 30 caracteres)|min:2(minimo 2),.....,
-	'id de otro input => ['required,Rule::in(['Arquero', 'Defensa','etc'])]]
+	'id de otro input => ['required,Rule::in(['Arquero', 'Defensa','etc'])],
+	'id' => 'required|integer|min:1|exists:equipos,id(verificar que existe en la base de datos)'
+	]
 
 hacer funcion messagges():array
 	lo mismo pero
@@ -24,6 +28,24 @@ hacer funcion messagges():array
 	'id.gte' => 'otro mensaje'
 	'id.lte' => 'otro mensaje'
 	'id.in' => 'input no balido'
+	'id.exists' => 
 
-use Illuminate\Validation\Rule;
+
+use Illuminate\Validation\Rule; en el request
+use App\Rules\NombreDeRule; en el request
+
+//--------------------------------------//
+
+php artisan make:rule NombreDeRule
+
+dentro de la funcion rules del request separar con ,
+	['id del input' => 'bail','required','tipo de dato','gte:1','lte:99',max:30',new NombreDeRule(request('algo'))]
+
+dentro de la funcion validate del rule:
+	agregar logica, para cuando sea correcto e incorrecta
+	
+dentro de los rules es puede hacer constructures, recordar importar modelos a usar.
+
+
+	
 
