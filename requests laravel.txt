@@ -64,5 +64,6 @@ los pasos son:
 4- funciones de autenticacion y logout en el controller
 5- en la vista se puede acceder con Auth::user()
 
-	
+para evitar entrara a vistas directamente sin estar logeado, crear funcion constructor y adentro de todos los  controllers normalmente -> $this->middleware('auth')->except(['login'])
 
+para que middleware sepa a que vista enviarme en caso de que no haya login, en la carpeta middleware/Authenticate -> redirectTo poner en route el name de la vista.
