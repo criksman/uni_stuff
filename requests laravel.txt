@@ -46,6 +46,23 @@ dentro de la funcion validate del rule:
 	
 dentro de los rules es puede hacer constructures, recordar importar modelos a usar.
 
+//--------------------//
+
+Auth::user() me permite saber la persona logeada
+
+El model del usuario tiene que hacer extends de Authenticable, para poder ocupar funciones en el controller como Auth
+
+config/auth -> buscar providers.
+cambiar el nombre del modelo al que se necesite.
+
+Cuando ocupo Auth::user() me devuelve un objeto de el modelo en providers.
+
+los pasos son:
+1- migración de la tabla usuario y si necesita de roles
+2- modelo, el model de usuario tiene el extends Authenticable
+3- reaizar el cambio en config/auth
+4- funciones de autenticacion y logout en el controller
+5- en la vista se puede acceder con Auth::user()
 
 	
 
