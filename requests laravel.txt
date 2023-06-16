@@ -67,3 +67,11 @@ los pasos son:
 para evitar entrara a vistas directamente sin estar logeado, crear funcion constructor y adentro de todos los  controllers normalmente -> $this->middleware('auth')->except(['login'])
 
 para que middleware sepa a que vista enviarme en caso de que no haya login, en la carpeta middleware/Authenticate -> redirectTo poner en route el name de la vista.
+
+//===========================//
+
+app/providers/AuthServiceProvider -> para realizar gates
+
+en la vista @if(Gate::allows('nombreDeLaRegla')) contenido @endif
+	    @if(Gate::denied('nombreDeLaRegla')) contenido @endif
+para evitar de que el usuario no entra a una respectiva vista que el gate esta ocultando ->
